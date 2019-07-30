@@ -20,7 +20,7 @@ Configuration Sample:
 
     {
     "AppSettings": {
-        "LogManPath": "/app/LogMan/",        
+        "LogManPath": "/app/LogMan/"       
     },
     "MySqlClusterSettings": {
         "Nodes": [
