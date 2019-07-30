@@ -1,0 +1,12 @@
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\bin\Debug\netcoreapp2.2\LogManCore.deps.json
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\bin\Debug\netcoreapp2.2\LogManCore.dll
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\bin\Debug\netcoreapp2.2\LogManCore.pdb
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\bin\Debug\netcoreapp2.2\DotNetCoreConfiguration.dll
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\bin\Debug\netcoreapp2.2\DotNetCoreConfiguration.pdb
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\obj\Debug\netcoreapp2.2\LogManCore.csprojAssemblyReference.cache
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\obj\Debug\netcoreapp2.2\LogManCore.csproj.CoreCompileInputs.cache
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\obj\Debug\netcoreapp2.2\LogManCore.AssemblyInfoInputs.cache
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\obj\Debug\netcoreapp2.2\LogManCore.AssemblyInfo.cs
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\obj\Debug\netcoreapp2.2\LogManCore.csproj.CopyComplete
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\obj\Debug\netcoreapp2.2\LogManCore.dll
+E:\WorkSpace\SouceCode\GitHub\DataNiuKnife\src\LogManCore\obj\Debug\netcoreapp2.2\LogManCore.pdb

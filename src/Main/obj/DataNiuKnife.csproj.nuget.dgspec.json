@@ -1,7 +1,7 @@
 {
   "format": 1,
   "restore": {
-    "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\LogManCore\\LogManCore.csproj": {}
+    "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\Main\\DataNiuKnife.csproj": {}
   },
   "projects": {
     "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj": {
@@ -122,6 +122,91 @@
               "target": "Package",
               "version": "[2.2.0, )",
               "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\Main\\DataNiuKnife.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\Main\\DataNiuKnife.csproj",
+        "projectName": "DataNiuKnife",
+        "projectPath": "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\Main\\DataNiuKnife.csproj",
+        "packagesPath": "C:\\Users\\DEV003\\.nuget\\packages\\",
+        "outputPath": "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\Main\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\DEV003\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj": {
+                "projectPath": "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj"
+              },
+              "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\LogManCore\\LogManCore.csproj": {
+                "projectPath": "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\LogManCore\\LogManCore.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.Extensions.Configuration.CommandLine": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Configuration.EnvironmentVariables": {
+              "target": "Package",
+              "version": "[2.2.4, )"
+            },
+            "Microsoft.Extensions.Hosting": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.Extensions.Hosting.Abstractions": {
+              "target": "Package",
+              "version": "[2.2.0, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            },
+            "MySql.Data": {
+              "target": "Package",
+              "version": "[8.0.16, )"
+            },
+            "Quartz": {
+              "target": "Package",
+              "version": "[3.0.7, )"
             }
           },
           "imports": [

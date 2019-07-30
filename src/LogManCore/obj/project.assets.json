@@ -1049,11 +1049,11 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\LogManCore\\LogManCore.csproj",
+      "projectUniqueName": "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\LogManCore\\LogManCore.csproj",
       "projectName": "LogManCore",
-      "projectPath": "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\LogManCore\\LogManCore.csproj",
+      "projectPath": "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\LogManCore\\LogManCore.csproj",
       "packagesPath": "C:\\Users\\DEV003\\.nuget\\packages\\",
-      "outputPath": "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\LogManCore\\obj\\",
+      "outputPath": "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\LogManCore\\obj\\",
       "projectStyle": "PackageReference",
       "fallbackFolders": [
         "C:\\Microsoft\\Xamarin\\NuGet\\",
@@ -1074,8 +1074,8 @@
       "frameworks": {
         "netcoreapp2.2": {
           "projectReferences": {
-            "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj": {
-              "projectPath": "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj"
+            "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj": {
+              "projectPath": "E:\\WorkSpace\\SouceCode\\GitHub\\DataNiuKnife\\src\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj"
             }
           }
         }

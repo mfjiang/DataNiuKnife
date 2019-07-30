@@ -3,3 +3,6 @@
 ################################################################################
 
 /src/DotNetCoreConfiguration/obj
+/src/DotNetCoreConfiguration/bin/Debug/netcoreapp2.2
+/src/LogManCore/bin/Debug/netcoreapp2.2
+/src/Main/.vs/DataNiuKnife

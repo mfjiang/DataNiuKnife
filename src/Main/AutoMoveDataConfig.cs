@@ -5,6 +5,17 @@ using System.Text;
 
 namespace DataNiuKnife
 {
+    /*
+Copyright (C)  2019 Jiang Ming Feng
+Github: https://github.com/mfjiang
+Contact: hamlet.jiang@live.com
+License:  https://github.com/mfjiang/DataNiuKnife/blob/master/LICENSE
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+*/
     /// <summary>
     /// 表示大表自动数据迁移配置
     /// </summary>

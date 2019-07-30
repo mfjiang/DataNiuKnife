@@ -13,8 +13,17 @@ using System.Threading.Tasks;
 
 namespace DataNiuKnife
 {
-    //Author    江名峰
-    //Date      2019.07.19
+    /*
+Copyright (C)  2019 Jiang Ming Feng
+Github: https://github.com/mfjiang
+Contact: hamlet.jiang@live.com
+License:  https://github.com/mfjiang/DataNiuKnife/blob/master/LICENSE
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+http://www.apache.org/licenses/LICENSE-2.0
+*/
 
     //从配置中解析要分割数据的源库、表名、数据保鲜期、日期字段名、主键字段名、归档库、分割作业的时间点    
     //使用Quartz.net实现定时任务
@@ -30,7 +39,7 @@ namespace DataNiuKnife
         private IScheduler m_Scheduler;
         private readonly AppSettings m_Settings;
         private readonly MySqlClusterSettings m_MySqlClusterSettings;
-        private Dictionary<MysqlNode, List<AutoMoveDataConfig>> m_ConfiguredDataNode;
+        private Dictionary<MySqlNode, List<AutoMoveDataConfig>> m_ConfiguredDataNode;
         private List<IJobDetail> m_JobList;
         private bool m_Stop = true;
         #endregion
@@ -69,7 +78,7 @@ namespace DataNiuKnife
             m_Settings = options.Value;
             m_Stop = false;
             m_MySqlClusterSettings = ConfigurationManager.GetMySqlClusterSettings();
-            m_ConfiguredDataNode = new Dictionary<MysqlNode, List<AutoMoveDataConfig>>();
+            m_ConfiguredDataNode = new Dictionary<MySqlNode, List<AutoMoveDataConfig>>();
             m_JobList = new List<IJobDetail>();
             //背景服务host会自动调用ExecuteAsync入口
         }
@@ -83,7 +92,7 @@ namespace DataNiuKnife
             m_Settings = appSettings;
             m_Stop = false;
             m_MySqlClusterSettings = ConfigurationManager.GetMySqlClusterSettings();
-            m_ConfiguredDataNode = new Dictionary<MysqlNode, List<AutoMoveDataConfig>>();
+            m_ConfiguredDataNode = new Dictionary<MySqlNode, List<AutoMoveDataConfig>>();
             m_JobList = new List<IJobDetail>();
             //始终保持一个等待的线程，以免容器内自动退出
             SpinWait.SpinUntil(() => false);
