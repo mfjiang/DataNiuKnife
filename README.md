@@ -6,7 +6,7 @@ Data Niu Knife is a service provides  to automatically splits, archive, and clea
 希望使用此服务的大数据表，有如下要求：
  1. 数据表存在自增长ID；
  2. 数据表存在时间列，数据以时间顺序增长；
- 3. 数据表不存在外键结束；
+ 3. 数据表不存在外键约束；
  4. 提供一个拥有读取数据表元数据和建表权限的数据库账号；
 
 If you want to use this service be sure following requirements:
