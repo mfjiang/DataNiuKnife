@@ -1,0 +1,136 @@
+{
+  "format": 1,
+  "restore": {
+    "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\LogManCore\\LogManCore.csproj": {}
+  },
+  "projects": {
+    "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj",
+        "projectName": "DotNetCoreConfiguration",
+        "projectPath": "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj",
+        "packagesPath": "C:\\Users\\DEV003\\.nuget\\packages\\",
+        "outputPath": "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\DotNetCoreConfiguration\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\DEV003\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {}
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.Extensions.Configuration": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Binder": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.FileExtensions": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.Extensions.Configuration.Json": {
+              "target": "Package",
+              "version": "[2.1.1, )"
+            },
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    },
+    "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\LogManCore\\LogManCore.csproj": {
+      "version": "1.0.0",
+      "restore": {
+        "projectUniqueName": "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\LogManCore\\LogManCore.csproj",
+        "projectName": "LogManCore",
+        "projectPath": "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\LogManCore\\LogManCore.csproj",
+        "packagesPath": "C:\\Users\\DEV003\\.nuget\\packages\\",
+        "outputPath": "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\LogManCore\\obj\\",
+        "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Microsoft\\Xamarin\\NuGet\\",
+          "C:\\Program Files\\dotnet\\sdk\\NuGetFallbackFolder"
+        ],
+        "configFilePaths": [
+          "C:\\Users\\DEV003\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Xamarin.Offline.config"
+        ],
+        "originalTargetFrameworks": [
+          "netcoreapp2.2"
+        ],
+        "sources": {
+          "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
+          "https://api.nuget.org/v3/index.json": {}
+        },
+        "frameworks": {
+          "netcoreapp2.2": {
+            "projectReferences": {
+              "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj": {
+                "projectPath": "E:\\WorkSpace\\SouceCode\\GitHub\\Gogogo\\DotNetCoreConfiguration\\DotNetCoreConfiguration.csproj"
+              }
+            }
+          }
+        },
+        "warningProperties": {
+          "warnAsError": [
+            "NU1605"
+          ]
+        }
+      },
+      "frameworks": {
+        "netcoreapp2.2": {
+          "dependencies": {
+            "Microsoft.NETCore.App": {
+              "suppressParent": "All",
+              "target": "Package",
+              "version": "[2.2.0, )",
+              "autoReferenced": true
+            }
+          },
+          "imports": [
+            "net461"
+          ],
+          "assetTargetFallback": true,
+          "warn": true
+        }
+      }
+    }
+  }
+}

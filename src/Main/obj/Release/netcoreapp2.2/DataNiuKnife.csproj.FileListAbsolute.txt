@@ -1,0 +1,17 @@
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\bin\Release\netcoreapp2.2\appsettings.json
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\bin\Release\netcoreapp2.2\DataNiuKnife.deps.json
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\bin\Release\netcoreapp2.2\DataNiuKnife.runtimeconfig.json
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\bin\Release\netcoreapp2.2\DataNiuKnife.runtimeconfig.dev.json
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\bin\Release\netcoreapp2.2\DataNiuKnife.dll
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\bin\Release\netcoreapp2.2\DataNiuKnife.pdb
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\bin\Release\netcoreapp2.2\DotNetCoreConfiguration.dll
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\bin\Release\netcoreapp2.2\LogManCore.dll
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\bin\Release\netcoreapp2.2\DotNetCoreConfiguration.pdb
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\bin\Release\netcoreapp2.2\LogManCore.pdb
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\obj\Release\netcoreapp2.2\DataNiuKnife.csprojAssemblyReference.cache
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\obj\Release\netcoreapp2.2\DataNiuKnife.csproj.CoreCompileInputs.cache
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\obj\Release\netcoreapp2.2\DataNiuKnife.AssemblyInfoInputs.cache
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\obj\Release\netcoreapp2.2\DataNiuKnife.AssemblyInfo.cs
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\obj\Release\netcoreapp2.2\DataNiuKnife.csproj.CopyComplete
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\obj\Release\netcoreapp2.2\DataNiuKnife.dll
+E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\obj\Release\netcoreapp2.2\DataNiuKnife.pdb

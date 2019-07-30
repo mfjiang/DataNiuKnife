@@ -1,0 +1,20 @@
+====== DataNiuKnife.NiuKnifeService Info 2019/7/27 11:15:46 ======
+开始初始化服务……
+====== DataNiuKnife.NiuKnifeService Info 2019/7/27 11:15:48 ======
+开始初始化服务结束
+自动分割数据表:data_shard，每天在23:00:00执行一次
+
+====== DataNiuKnife.NiuKnifeService Info 2019/7/27 11:15:52 ======
+开始初始化服务……
+====== DataNiuKnife.NiuKnifeService Error 2019/7/27 11:15:52 ======
+初始化服务失败，Unable to store Job: 'g_data_sharding_a.job_0', because one already exists with this identification.
+Quartz.ObjectAlreadyExistsException: Unable to store Job: 'g_data_sharding_a.job_0', because one already exists with this identification.
+   at Quartz.Simpl.RAMJobStore.StoreJobInternal(IJobDetail newJob, Boolean replaceExisting) in C:\projects\quartznet\src\Quartz\Simpl\RAMJobStore.cs:line 277
+   at Quartz.Simpl.RAMJobStore.StoreJobAndTrigger(IJobDetail newJob, IOperableTrigger newTrigger, CancellationToken cancellationToken) in C:\projects\quartznet\src\Quartz\Simpl\RAMJobStore.cs:line 218
+   at Quartz.Core.QuartzScheduler.ScheduleJob(IJobDetail jobDetail, ITrigger trigger, CancellationToken cancellationToken) in C:\projects\quartznet\src\Quartz\Core\QuartzScheduler.cs:line 616
+   at DataNiuKnife.NiuKnifeService.StartServices(CancellationToken stoppingToken) in E:\WorkSpace\svn\H518\Web\GamePlatformG2\trunk\DataNiuKnife\NiuKnifeService.cs:line 161
+====== DataNiuKnife.NiuKnifeService Info 2019/7/27 11:15:54 ======
+开始初始化服务结束
+自动分割数据表:data_shard，每天在23:00:00执行一次
+自动分割数据表:data_shard，每天在23:00:00执行一次
+
