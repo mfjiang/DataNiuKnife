@@ -31,7 +31,7 @@ Configuration Sample:
                     "IsSlave": false,
                     "DataBasesName": "data_sharding_a",
                     "ConnStr": "server=192.168.3.250;database=data_sharding_a;user=app_user;password=your pwd;charset=utf8;",
-                    "DevideFromNodeID": 2,
+                    "DevideFromNodeID": 0,
                     "DevideDataSet": "table 1:hash key,table 2:hash key,table n:hash key",
                     "AutoMoveDataSet": "table_name=data_shard,key_name=id,date_field=created,data_hold_days=180,archive_node_id=2,schedule_time=23:00:00;"
                 }
