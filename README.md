@@ -3,6 +3,18 @@
 
 Data Niu Knife is a service provides  to automatically splits, archive, and clean up stale data for big data tables. It is implemented using C# /.NET CORE and currently supports Mysql data sources.
 
+核心功能：
+1. 通过简单的配置，可管理任意多个数据库节点上的大数据表的定期数据分割、归档和清理。
+2. 每日执行数据复制。
+3. 按指定天数移除过期数据。
+4. 按月归档数据。
+
+Key Features:
+1. through simple configuration, can manage the regular data segmentation, archiving and cleaning of big data tables on any number of database nodes.
+2. Perform data replication daily.
+3. Remove expired data by the specified number of days.
+4. Archive data by month.
+
 希望使用此服务的大数据表，有如下要求：
  1. 数据表存在自增长ID；
  2. 数据表存在时间列，数据以时间顺序增长；
@@ -31,7 +43,7 @@ Configuration Sample:
                     "IsSlave": false,
                     "DataBasesName": "data_sharding_a",
                     "ConnStr": "server=192.168.3.250;database=data_sharding_a;user=app_user;password=your pwd;charset=utf8;",
-                    "DevideFromNodeID": 2,
+                    "DevideFromNodeID": 0,
                     "DevideDataSet": "table 1:hash key,table 2:hash key,table n:hash key",
                     "AutoMoveDataSet": "table_name=data_shard,key_name=id,date_field=created,data_hold_days=180,archive_node_id=2,schedule_time=23:00:00;"
                 }
@@ -86,3 +98,29 @@ This service supports docker container:
 
     docker build -f Dockfile -t data_niu_knife:demo .
     docker run --name data_niu_knife_hosted --mount type=bind,source=/home/docker_data/DataNiuKnife/LogMan/,target=/app/LogMan/ -d data_niu_knife:demo .
+
+正常运行后可看到类似下方的日志：
+After start the service, you can see some logs like below:
+```bash
+[root@localhost ~]# cat /home/docker_data/DataNiuKnife/LogMan/MysqlDataWorker-2019-07-29-pid1.log
+====== DataNiuKnife.MysqlDataWorker Info 07/29/2019 11:00:00 ======
+MysqlDataWorker已在服务环境启动，源表名:data_shard
+====== DataNiuKnife.MysqlDataWorker Info 07/29/2019 11:00:00 ======
+开始自动创建分表，表名:data_shard_spt_201907
+====== DataNiuKnife.MysqlDataWorker Info 07/29/2019 11:00:00 ======
+开始创建分表:
+CREATE TABLE IF NOT EXISTS `data_shard_spt_201907`   (
+  `id` bigint(10) unsigned NOT NULL AUTO_INCREMENT,
+  `value` varchar(255) DEFAULT NULL,
+  `created` datetime NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB AUTO_INCREMENT=51 DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_0900_ai_ci
+====== DataNiuKnife.MysqlDataWorker Info 07/29/2019 11:00:01 ======
+成功创建分表:data_shard_spt_201907
+====== DataNiuKnife.MysqlDataWorker Info 07/29/2019 11:00:01 ======
+成功自动创建分表，表名:data_shard_spt_201907
+====== DataNiuKnife.MysqlDataWorker Info 07/29/2019 11:00:01 ======
+开始自动复制数据，源表名:data_shard,分表名:data_shard_spt_201907
+====== DataNiuKnife.MysqlDataWorker Info 07/29/2019 11:00:02 ======
+自动复制了50笔数据，源表名:data_shard,分表名:data_shard_spt_201907
+```
