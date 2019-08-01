@@ -27,7 +27,7 @@ you may not use this file except in compliance with the License.
 You may obtain a copy of the License at
 http://www.apache.org/licenses/LICENSE-2.0
 */
-  
+
 
     /// <summary>
     /// 表示定时处理的任务
@@ -118,13 +118,14 @@ http://www.apache.org/licenses/LICENSE-2.0
             //分表规则：总是按原表名按年月建表，因此随着时间流自然产生新一月的分表，例： MyTable_spt_20190701
             string temp_table = String.Format("{0}_spt_{1}", m_TableName, DateTime.Now.ToString("yyyyMM"));
             string[] tbs;
+            bool newSptTableCreated = false;
             try
             {
                 if (!CheckSplitTableExists(m_TableName, temp_table, out tbs))
                 {
                     //如果不存在可用的分表，自动创建
                     Loger.Info(this.GetType(), String.Format("开始自动创建分表，表名:" + temp_table));
-                    CreateSplitTable(temp_table, m_TableName);
+                    newSptTableCreated = CreateSplitTable(temp_table, m_TableName);
                     Loger.Info(this.GetType(), String.Format("成功自动创建分表，表名:" + temp_table));
                 };
 
@@ -132,7 +133,17 @@ http://www.apache.org/licenses/LICENSE-2.0
                 //从归档表的最后一个key+1为起点，从源表读取数据副本
                 Loger.Info(this.GetType(), String.Format("开始自动复制数据，源表名:{0},分表名:{1}", m_TableName, temp_table));
                 long total = 0;
-                total = CopyData(temp_table, m_TableName);
+                if (newSptTableCreated && tbs.Length >= 2)
+                {
+                    //当前不只一个分表，新建分表肯定是空的，不存在last key，要从上一个分表取出last key
+                    string lastKey = GetLastKeyValue(tbs[tbs.Length - 2]);
+                    total = CopyData(temp_table, m_TableName, lastKey);
+                }
+                else
+                {
+                    //当前只有一个分表
+                    total = CopyData(temp_table, m_TableName);
+                }
                 Loger.Info(this.GetType(), String.Format("自动复制了{2}笔数据，源表名:{0},分表名:{1}", m_TableName, temp_table, total));
 
                 //数据清理
@@ -262,11 +273,14 @@ http://www.apache.org/licenses/LICENSE-2.0
         /// <param name="splitTableName">归档的分表名</param>
         /// <param name="sourceTableName">源表名</param>
         /// <returns></returns>
-        public long CopyData(string splitTableName, string sourceTableName)
+        public long CopyData(string splitTableName, string sourceTableName, string lastKey = null)
         {
             long total = 0;
             //找出上一次最后复制的key 
-            string lastKey = GetLastKeyValue(splitTableName);
+            if (lastKey == null)
+            {
+                lastKey = GetLastKeyValue(splitTableName);
+            }
             try
             {
                 using (MySqlConnection source = new MySqlConnection(m_ConnSourceStr))
