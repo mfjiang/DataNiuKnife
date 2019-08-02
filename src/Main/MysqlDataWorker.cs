@@ -28,7 +28,6 @@ You may obtain a copy of the License at
 http://www.apache.org/licenses/LICENSE-2.0
 */
 
-
     /// <summary>
     /// 表示定时处理的任务
     /// </summary>
@@ -45,7 +44,7 @@ http://www.apache.org/licenses/LICENSE-2.0
         private long m_MaxCopy = 1000000;//一次复制100万记录     
 
         private string cmd_txt_create_split_tb = "CREATE TABLE IF NOT EXISTS `{0}` ";
-        private string cmd_txt_select_dest_tb_schemas = "SELECT `TABLE_SCHEMA`,`TABLE_NAME`,`CREATE_TIME` FROM information_schema.`TABLES` as tables_schema WHERE tables_schema.`TABLE_NAME` LIKE '{0}_spt_%' ORDER BY tables_schema.`CREATE_TIME` DESC ";
+        private string cmd_txt_select_dest_tb_schemas = "SELECT `TABLE_SCHEMA`,`TABLE_NAME`,`CREATE_TIME` FROM information_schema.`TABLES` as tables_schema WHERE tables_schema.`TABLE_NAME` LIKE '{0}_spt_%' ORDER BY tables_schema.`CREATE_TIME` ASC ";
         private string cmd_txt_select_dest_last_key = "SELECT `{0}` as keyname from `{1}` ORDER BY `{0}` DESC LIMIT 1";
         private string cmd_txt_show_create_tb = "SHOW CREATE TABLE `{0}`";
         private string cmd_txt_read_rows = "SELECT * FROM `{0}` WHERE `{1}` > {2} ORDER BY `{1}` ASC LIMIT {3}";
@@ -127,16 +126,18 @@ http://www.apache.org/licenses/LICENSE-2.0
                     Loger.Info(this.GetType(), String.Format("开始自动创建分表，表名:" + temp_table));
                     newSptTableCreated = CreateSplitTable(temp_table, m_TableName);
                     Loger.Info(this.GetType(), String.Format("成功自动创建分表，表名:" + temp_table));
-                };
+                    //更新分表清单
+                    CheckSplitTableExists(m_TableName, temp_table, out tbs);
+                }
 
                 //数据复制
                 //从归档表的最后一个key+1为起点，从源表读取数据副本
                 Loger.Info(this.GetType(), String.Format("开始自动复制数据，源表名:{0},分表名:{1}", m_TableName, temp_table));
                 long total = 0;
-                if (newSptTableCreated && tbs.Length >= 2)
+                if (tbs.Length >= 2)
                 {
                     //当前不只一个分表，新建分表肯定是空的，不存在last key，要从上一个分表取出last key
-                    string lastKey = GetLastKeyValue(tbs[tbs.Length - 2]);
+                    string lastKey = GetLastKeyValue(tbs);
                     total = CopyData(temp_table, m_TableName, lastKey);
                 }
                 else
@@ -152,7 +153,7 @@ http://www.apache.org/licenses/LICENSE-2.0
                 {
                     long r = 0;
                     Loger.Info(this.GetType(), String.Format("开始自动清理数据，表名:" + m_TableName));
-                    r = DeleteData(tbs[tbs.Length - 1], m_TableName);
+                    r = DeleteData(tbs, m_TableName);
                     Loger.Info(this.GetType(), String.Format("完成自动清理数据{0}笔，表名:{1}", r, m_TableName));
                 }
             }
@@ -187,7 +188,7 @@ http://www.apache.org/licenses/LICENSE-2.0
                             string temp = "";
                             for (int k = 0; k < ds.Tables[0].Rows.Count; k++)
                             {
-                                temp += ds.Tables[0].Rows[0]["TABLE_NAME"] + ",";
+                                temp += ds.Tables[0].Rows[k]["TABLE_NAME"] + ",";
                             }
                             tbs = temp.Split(",", StringSplitOptions.RemoveEmptyEntries);
                         }
@@ -343,11 +344,11 @@ http://www.apache.org/licenses/LICENSE-2.0
         /// <param name="splitTableName">分表名</param>
         /// <param name="sourceTableName">源表名</param>
         /// <returns></returns>
-        public long DeleteData(string splitTableName, string sourceTableName)
+        public long DeleteData(string[] tbs, string sourceTableName)
         {
             long total = 0;
             //找出上一次最后复制的key 
-            string lastKey = GetLastKeyValue(splitTableName);
+            string lastKey = GetLastKeyValue(tbs);
             string delete = String.Format(cmd_txt_delete_rows, m_TableName, m_KeyName, lastKey, m_DateField, m_DataHoldDays);
             try
             {
@@ -360,7 +361,7 @@ http://www.apache.org/licenses/LICENSE-2.0
             }
             catch (Exception ex)
             {
-                Loger.Error(this.GetType(), String.Format("清理过期数据失败，分表名:{0}，源表名:{1}，数据保留天数:{2}", splitTableName, m_TableName, m_DataHoldDays), ex);
+                Loger.Error(this.GetType(), String.Format("清理过期数据失败，源表名:{0}，数据保留天数:{1}", m_TableName, m_DataHoldDays), ex);
                 throw ex;
             }
             return total;
@@ -397,6 +398,25 @@ http://www.apache.org/licenses/LICENSE-2.0
                 throw ex;
             }
 
+            return lastKey;
+        }
+
+        /// <summary>
+        /// 在所有子表中取得最后复制的主键值
+        /// </summary>
+        /// <param name="tbs">子表名单</param>
+        /// <returns></returns>
+        public string GetLastKeyValue(string[] tbs)
+        {
+            string lastKey = "0";
+            for (int i = tbs.Length - 1; i >= 0; i--)
+            {
+                lastKey = GetLastKeyValue(tbs[i]);
+                if (!lastKey.Equals(String.Empty) && !lastKey.Equals("0"))
+                {
+                    break;
+                }
+            }
             return lastKey;
         }
     }
